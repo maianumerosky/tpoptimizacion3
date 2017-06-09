@@ -1,0 +1,13 @@
+f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
+iter = 0;
+
+while iter<1000
+    aleatorios = rand(100,2);
+    f_aleatorios = [];
+    for i = 1:100
+        f_aleatorios(i) = f([aleatorios(i,1),aleatorios(i,2)]);
+    end
+    [fmin,minimo_indice] = min(f_aleatorios);
+    minimo_valor = [aleatorios(minimo_indice,1),aleatorios(minimo_indice,2)];
+    iter = iter +1;
+end
