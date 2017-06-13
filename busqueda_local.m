@@ -1,6 +1,13 @@
 function [x,y] = busqueda_local(f,iter,n,d,a)
+%Funcion que busca el minimo haciendo descenso aleatorio con busqueda local iterada.
+%Empieza con un punto al azar en la "caja" a que da el usuario,
+%se mueve 0.5 alrededor de ese punto (a menos que se pase) y genera n
+%puntos al azar en esa nueva caja. Busca el mejor y compara con el
+%anterior. Repite iter veces. La funcion f:Rd-->R.
 
-    % f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
+
+ %Empiezo con un punto al azar en a
+
     minimizador_viejo = [];
     for i = 1:d
         minimizador_viejo = [minimizador_viejo a(i,1)+(a(i,2)-a(i,1))*rand(1)];
@@ -9,10 +16,15 @@ function [x,y] = busqueda_local(f,iter,n,d,a)
     m=0;
 
     while m<iter
+        a-nueva = zeros(d,2);
+        for j = 1:d
+            a-nueva(j,1) = minimizador_viejo(j)-0.5;
+            a-nueva(j,2) = minimizador_viejo(j)+0.5;
+        end
         aleatorios = zeros(n,d);
         for j = 1:n
             for i = 1:d
-                aleatorios(j,i) = rand*(a(i,2)-a(i,1))+a(i,1);
+                aleatorios(j,i) = rand*(a-nueva(i,2)-a-nueva(i,1))+a-nueva(i,1);
             end
         end
         f_aleatorios = zeros(n,1) ;
