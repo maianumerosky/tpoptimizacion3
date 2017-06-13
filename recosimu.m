@@ -11,7 +11,7 @@ m = size(x);
 for j = 1:nn
     for i=1:n
         R = rand(m)*(b-a) + a;
-        if f(R)<f(S) || rand < exp((f(R)-f(S))/t)
+        if f(R)<f(S) || rand < exp((f(S)-f(R))/t)
             S = R;
         end
     end
