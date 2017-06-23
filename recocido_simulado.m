@@ -1,4 +1,4 @@
-function Best = recosimu(f,x,varargin)
+function Best = recocido_simulado(f,x,varargin)
 
 t = opcion('Temp',varargin,1000); %temperatura inicial
 k = opcion('FracTemp',varargin,1.05); %fraccion de temperatura. Para descenso
@@ -23,7 +23,7 @@ iter = 0;
 tic
 while iter <MaxIter && t>tTol && toc<tlim
     for i=1:n
-        R = paso(t)*(rand(m)*2-1) + S; %el ...*2-1 lo que hace es buscar numeros entre -1 y 1
+        R = paso(t)*randn(m) + S; %el ...*2-1 lo que hace es buscar numeros entre -1 y 1
         %Arreglo el R por si salio de la caja
         for coord = 1:d
             if ~(isempty(Ub) && isempty(Lb)) %Si no estan vacios los bordes

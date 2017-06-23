@@ -1,28 +1,30 @@
-function [x,y] = busqueda_local(f,iter,n,d,a)
+function [x,y] = busqueda_local(f,d,A, varargin)
 %Funcion que busca el minimo haciendo descenso aleatorio con busqueda local iterada.
 %Empieza con un punto al azar en la "caja" a que da el usuario,
 %se mueve 0.5 alrededor de ese punto (a menos que se pase) y genera n
 %puntos al azar en esa nueva caja. Busca el mejor y compara con el
-%anterior. Repite iter veces. La funcion f:Rd-->R.
+%anterior. Repite MaxIter veces. La funcion f:Rd-->R.
 
+n = opcion('n',varargin,100);
+MaxIter = opcion('MaxIter',varargin,10000);
 
 %Empiezo con un punto al azar en a
 
     minimizador_viejo = [];
     for i = 1:d
-        minimizador_viejo = [minimizador_viejo a(i,1)+(a(i,2)-a(i,1))*rand];
+        minimizador_viejo = [minimizador_viejo A(i,1)+(A(i,2)-A(i,1))*rand];
     end
     minimo_viejo = f(minimizador_viejo);
     m=0;
     
-    while m<iter
+    while m<MaxIter
         
 %Construyo una cajita alrededor de ese punto
 
-        anueva = zeros(d,2);
+        Anueva = zeros(d,2);
         for j = 1:d
-            anueva(j,1) = max(minimizador_viejo(j)-0.1,a(j,1));
-            anueva(j,2) = min(minimizador_viejo(j)+0.1,a(j,2));
+            Anueva(j,1) = max(minimizador_viejo(j)-0.1,A(j,1));
+            Anueva(j,2) = min(minimizador_viejo(j)+0.1,A(j,2));
         end
         
 %Genero n puntos aleatorios en esa cajita
@@ -30,7 +32,7 @@ function [x,y] = busqueda_local(f,iter,n,d,a)
         aleatorios = zeros(n,d);
         for j = 1:n
             for i = 1:d
-                aleatorios(j,i) = rand*(anueva(i,2)-anueva(i,1))+anueva(i,1);
+                aleatorios(j,i) = rand*(Anueva(i,2)-Anueva(i,1))+Anueva(i,1);
             end
         end
         

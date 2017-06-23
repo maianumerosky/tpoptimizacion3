@@ -1,17 +1,22 @@
-function [x,y] = busqueda_local_iterada(f,iter1,iter2,n,d,a)
+function [x,y] = busqueda_local_iterada(f,d,A, varargin)
+
+n = opcion('n',varargin,100);
+MaxIter = opcion('MaxIter',varargin,10000);
+iter = opcion('n',varargin,10000);
+
 
 %Empiezo con un punto al azar en a
 
     x = [];
     for i = 1:d
-        x = [x a(i,1)+(a(i,2)-a(i,1))*rand];
+        x = [x A(i,1)+(A(i,2)-A(i,1))*rand];
     end
     y = f(x);    
 
 k = 0;
 
-while k < iter2
-    [candidato,fcandidato] = busqueda_local(f,iter1,n,d,a);
+while k < MaxIter
+    [candidato,fcandidato] = busqueda_local(f,iter,n,d,A);
     if y > fcandidato
         x = candidato;
         y = fcandidato;

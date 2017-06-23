@@ -1,31 +1,29 @@
-% Incompletoooo
-%Falta definir la parte de Select with Replacement!
+function Best = GA(f,popsize,MaxNumIter,d)
 
 
-popsize = 20;
-n = 3;
+t = 4;
 Best = [];
 iter = 1;
-MaxNumIter: 1000
 
-P = zeros(popsize,n);
+P = zeros(popsize,d);
 for i = 1:popsize
-    P(i,:) = rand(1,n);
-
+    P(i,:) = rand(1,d);
+end
 while iter < MaxNumIter
     for i = 1:popsize
-        if f(P(i,:)) < f(Best)
+        if isempty(Best) || f(P(i,:)) < f(Best)
             Best = P(i,:);
         end
     end
     Q = [];
     for i = 1:popsize/2
-        Pa = ...
-        Pb = ...
+        Pa = seleccion(f,P,t);
+        Pb = seleccion(f,P,t);
         [Ca Cb] = cover2(Pa,Pb);
-        Q = [Q mutar(Ca) mutar(Cb)];
+        Q = [Q; mutar(Ca); mutar(Cb)];
     end
     P = Q;
+    iter = iter + 1;
 end
 
     
