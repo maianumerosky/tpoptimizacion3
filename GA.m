@@ -1,4 +1,4 @@
-function [x y] = GA(f,popsize,d,varargin)
+function [x y varargout] = GA(f,popsize,d,varargin)
 
 A = opcion('Dominio',varargin,[zeros(d,1) ones(d,1)]);
 MaxIter = opcion('MaxIter',varargin,10000);
@@ -11,6 +11,8 @@ Best = [];
 Ub = A(:,2)';
 Lb = A(:,1)';
 m = 0;
+
+intermedios = [];
 
 %Genero una poblacion al azar 
 P = zeros(popsize,d);
@@ -54,7 +56,12 @@ while m < MaxIter && toc<tlim
     end
     P = Q;
     m = m + 1;
+    intermedios = [intermedios f(Best)];
 end
 
 x = Best;
 y = f(Best);
+
+varargout{1} = toc;
+varargout{2} = m;
+varargout{3} = intermedios;

@@ -1,4 +1,4 @@
-function [x,y] = hibrido(f,x0, varargin)
+function [x,y, varargout] = hibrido(f,x0, varargin)
 
 d = length(x0);
 
@@ -14,6 +14,8 @@ minimo_viejo = f(minimizador_viejo);
 
 Ub = A(:,2)'; %Los limites superiores del dominio en fila
 Lb = A(:,1)'; %Los limites inferiores del dominio en fila
+
+intermedios = [];
 
 m = 0;
 tinicio = tic; %Para que no se mezcle con los tics anidados
@@ -33,5 +35,10 @@ while m < MaxIter && toc(tinicio)<tlim
     
     minimizador_viejo = rand(1,d).*(Ub-Lb)+Lb;
     m = m+1;
+    intermedios = [intermedios y];
     
 end
+
+varargout{1} = toc;
+varargout{2} = m;
+varargout{3} = intermedios;

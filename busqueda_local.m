@@ -1,4 +1,4 @@
-function [x,y] = busqueda_local(f,x0,varargin)
+function [x,y varargout] = busqueda_local(f,x0,varargin)
 %Funcion que busca el minimo haciendo descenso aleatorio con busqueda local iterada.
 %Empieza con un punto al azar en la "caja" a que da el usuario,
 %se mueve 0.05 alrededor de ese punto (a menos que se pase) y genera n
@@ -12,6 +12,7 @@ n = opcion('n',varargin,100);
 MaxIter = opcion('MaxIter',varargin,10000);
 tlim = opcion('tlim',varargin,300);
 
+intermedios = [];
 
 %Empiezo con un punto al azar en a
 %% Borrar si se acepta esta decision
@@ -24,8 +25,8 @@ minimizador_viejo = x0;
 minimo_viejo = f(minimizador_viejo);
 m=0;
 
-tic %Comienza a contar tiempo
-while m<MaxIter && toc<tlim
+tinicio = tic; %Comienza a contar tiempo
+while m<MaxIter && toc(tinicio)<tlim
 
 %Construyo una cajita alrededor de ese punto
 
@@ -35,7 +36,7 @@ while m<MaxIter && toc<tlim
         Anueva(j,2) = min(minimizador_viejo(j)+0.1,A(j,2));
     end
 
-    [minimizador_viejo y] = descenso_aleatorio(f,minimizador_viejo,'Dominio',mat2str(Anueva),'MaxIter','1','n',num2str(n),'tlim','inf');
+    [minimizador_viejo y] = descenso_aleatorio(f,minimizador_viejo,'Dominio',mat2str(Anueva),'MaxIter','1','n',num2str(n),'tlim',num2str(tlim));
 
        %% Borrar si hay acuerdo
 %        
@@ -78,6 +79,10 @@ while m<MaxIter && toc<tlim
 %     end
 
     m = m +1;   
+    intermedios = [intermedios y];
 end
 
+varargout{1} = toc(tinicio);
+varargout{2} = m;
+varargout{3} = intermedios;
 x = minimizador_viejo;

@@ -1,4 +1,4 @@
-function [x,y] = busqueda_local_iterada(f,x0, varargin)
+function [x,y, varargout] = busqueda_local_iterada(f,x0, varargin)
 
 d = length(x0);
 
@@ -8,6 +8,7 @@ MaxIter = opcion('MaxIter',varargin,10000);
 iter = opcion('n',varargin,10000);
 tlim = opcion('tlim',varargin,300);
 
+intermedios = [];
 
 %Empiezo con un punto al azar en a
 
@@ -27,7 +28,7 @@ Lb = A(:,1)'; %Los limites inferiores del dominio en fila
 m = 0;
 tinicio = tic; %Para que no se mezcle con los tics anidados
 while m < MaxIter && toc(tinicio)<tlim
-    [candidato,fcandidato] = busqueda_local(f,minimizador_viejo,'MaxIter',num2str(iter),'n',num2str(n),'Dominio',mat2str(A),'tlim','inf');
+    [candidato,fcandidato] = busqueda_local(f,minimizador_viejo,'MaxIter',num2str(iter),'n',num2str(n),'Dominio',mat2str(A),'tlim',num2str(tlim));
     if minimo_viejo > fcandidato
         x = candidato;
         y = fcandidato;
@@ -35,5 +36,9 @@ while m < MaxIter && toc(tinicio)<tlim
     
     minimizador_viejo = rand(1,d).*(Ub-Lb)+Lb;
     m = m+1;
-    
+    intermedios = [intermedios y];
 end
+
+varargout{1} = toc(tinicio);
+varargout{2} = m;
+varargout{3} = intermedios;
