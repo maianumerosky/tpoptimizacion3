@@ -1,32 +1,34 @@
-function Best = recocido_simulado(f,x,varargin)
+function [x y] = recocido_simulado(f,x0,varargin)
 
 t = opcion('Temp',varargin,1000); %temperatura inicial
 k = opcion('FracTemp',varargin,1.05); %fraccion de temperatura. Para descenso
 
-Ub = opcion('Ub',varargin,[]); %upperbound
-Lb = opcion('Lb',varargin,[]); %lowerbound
+A = opcion('Dominio',varargin,[]);
 paso = opcion('Paso',varargin,@(t) sqrt(t)); %Parametro para longitud de paso segun la temp
 desc = opcion('desc',varargin,@(t) t/k);
 n = opcion('CantPasos',varargin,1000);
-MaxIter = opcion('MaxIter',varargin,10000000);
+MaxIter = opcion('MaxIter',varargin,10000);
 tTol = opcion('tTol',varargin,10^-10);
 tlim = opcion('tlim',varargin,300);
 
-S = x;
+Ub = A(:,2)';
+Lb = A(:,1)';
+
+S = x0;
 Best = S;
 m = size(x);
 d = length(x);
-iter = 0;
+m = 0;
 
 
 
 tic
-while iter <MaxIter && t>tTol && toc<tlim
+while m <MaxIter && t>tTol && toc<tlim
     for i=1:n
-        R = paso(t)*randn(m) + S; %el ...*2-1 lo que hace es buscar numeros entre -1 y 1
+        R = paso(t)*randn(m) + S; %Para elegir un numero al azar 
         %Arreglo el R por si salio de la caja
-        for coord = 1:d
-            if ~(isempty(Ub) && isempty(Lb)) %Si no estan vacios los bordes
+        if ~isempty(A) %Si no esta vacio el Dominio dado por el usuario
+            for coord = 1:d
                 if R(coord) > Ub(coord)
                     R(coord) = Ub(coord);
                 elseif R(coord) < Lb(coord)
@@ -43,6 +45,8 @@ while iter <MaxIter && t>tTol && toc<tlim
     if f(S) < f(Best)
         Best = S;
     end
-    iter = iter +1;
+    m = m +1;
 end
 
+x = Best;
+y = f(Best);
