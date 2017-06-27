@@ -14,13 +14,6 @@ tlim = opcion('tlim',varargin,300);
 
 intermedios = [];
 
-%Empiezo con un punto al azar en a
-%% Borrar si se acepta esta decision
-% minimizador_viejo = [];
-% for i = 1:d
-%     minimizador_viejo = [minimizador_viejo A(i,1)+(A(i,2)-A(i,1))*rand];
-% end
-
 minimizador_viejo = x0;
 minimo_viejo = f(minimizador_viejo);
 m=0;
