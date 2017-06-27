@@ -1,5 +1,7 @@
 function y = mutar(x)
-p = 1;
+
+d= lenght(x);
+p = 1/d;
 sigma2 = 1;
 min = -inf;
 max = inf;
@@ -10,7 +12,6 @@ for i=1:l
         n = sqrt(sigma2)*randn;
         while ~(min <= x(i)+n && max >= x(i)+n)
             n = sqrt(sigma2)*randn;
-            disp('hola')
         end
         x(i) = x(i) + n;
     end

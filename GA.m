@@ -1,11 +1,11 @@
 function [x y varargout] = GA(f,popsize,d,varargin)
 
-A = opcion('Dominio',varargin,[zeros(d,1) ones(d,1)]);
+A = opcion('A',varargin,[zeros(d,1) ones(d,1)]);
 MaxIter = opcion('MaxIter',varargin,10000);
 tlim = opcion('tlim',varargin,300);
-t = opcion('ParamSelec',varargin,4);
-cover = opcion('CrossOver',varargin,@cover2);
-mut = opcion('Mutar',varargin,@mutar);
+ParamSelec = opcion('ParamSelec',varargin,4);
+crossover = opcion('crossver',varargin,@cover2);
+% mutar = opcion('mutar',varargin,@mutar);
 
 Best = [];
 Ub = A(:,2)';
@@ -30,11 +30,11 @@ while m < MaxIter && toc<tlim
     
     Q = [];
     for i = 1:popsize/2
-        Pa = seleccion(f,P,t);
-        Pb = seleccion(f,P,t);
-        [Ca Cb] = cover(Pa,Pb);
-        Ca = mut(Ca);
-        Cb = mut(Cb);
+        Pa = seleccion(f,P,ParamSelec);
+        Pb = seleccion(f,P,ParamSelec);
+        [Ca Cb] = crossover(Pa,Pb);
+        Ca = mutar(Ca);
+        Cb = mutar(Cb);
         
         %Que Ca y Cb se mantengan dentro del dominio
         if ~isempty(A) %Si no esta vacio el Dominio dado por el usuario

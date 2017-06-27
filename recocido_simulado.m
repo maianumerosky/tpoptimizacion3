@@ -1,14 +1,13 @@
 function [x y varargout] = recocido_simulado(f,x0,varargin)
 
-t = opcion('Temp',varargin,1000); %temperatura inicial
-k = opcion('FracTemp',varargin,1.05); %fraccion de temperatura. Para descenso
-
-A = opcion('Dominio',varargin,[]);
-paso = opcion('Paso',varargin,@(t) sqrt(t)); %Parametro para longitud de paso segun la temp
+temp = opcion('temp',varargin,1000); %temperatura inicial
+k = opcion('k',varargin,1.05); %fraccion de temperatura. Para descenso
+A = opcion('A',varargin,[]);
+paso = opcion('paso',varargin,@(t) sqrt(t)); %Parametro para longitud de paso segun la temp
 desc = opcion('desc',varargin,@(t) t/k);
-n = opcion('CantPasos',varargin,1000);
+n = opcion('n',varargin,1000);
 MaxIter = opcion('MaxIter',varargin,10000);
-tTol = opcion('tTol',varargin,10^-10);
+tempTol = opcion('tempTol',varargin,10^-10);
 tlim = opcion('tlim',varargin,300);
 
 if ~isempty(A)
@@ -18,16 +17,16 @@ end
 
 S = x0;
 Best = S;
-s = size(x0);
+d = size(x0);
 d = length(x0);
 m = 0;
 
 intermedios = [];
 
 tic
-while m <MaxIter && t>tTol && toc<tlim
+while m <MaxIter && temp>tempTol && toc<tlim
     for i=1:n
-        R = paso(t)*randn(s) + S; %Para elegir un numero al azar 
+        R = paso(temp)*randn(d) + S; %Para elegir un numero al azar 
         %Arreglo el R por si salio de la caja
         if ~isempty(A) %Si no esta vacio el Dominio dado por el usuario
             for coord = 1:d
@@ -39,11 +38,11 @@ while m <MaxIter && t>tTol && toc<tlim
             end
         end
         
-        if f(R)<f(S) || rand < exp((f(S)-f(R))/t)
+        if f(R)<f(S) || rand < exp((f(S)-f(R))/temp)
             S = R;
         end
     end
-    t = desc(t);
+    temp = desc(temp);
     if f(S) < f(Best)
         Best = S;
     end

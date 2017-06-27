@@ -5,7 +5,7 @@ function [x,y varargout] = descenso_aleatorio(f,x0,varargin)
 
 d = length(x0);
 
-A = opcion('Dominio',varargin,[zeros(d,1) ones(d,1)]);
+A = opcion('A',varargin,[zeros(d,1) ones(d,1)]);
 n = opcion('n',varargin,100);
 MaxIter = opcion('MaxIter',varargin,10000);
 tlim = opcion('tlim',varargin,300);
@@ -30,14 +30,7 @@ while m<MaxIter && toc<tlim
     for i = 1:n
         aleatorios(i,:) = rand(1,d).*(Ub-Lb)+Lb;
     end
-    
-    %% Borrar si se acepta esta modificacion
-%     for j = 1:n
-%         for i = 1:d
-%             aleatorios(j,i) = rand*(A(i,2)-A(i,1))+A(i,1);
-%         end
-%     end
-    %%
+
 %Evaluo cada uno de ellos      
     f_aleatorios = zeros(n,1) ;
     for i = 1:n

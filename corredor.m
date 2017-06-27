@@ -1,8 +1,8 @@
 
-f = @rosenbruck;
-x0 = [0 0 0 0 0 0];
+f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
+x0 = rand(2,1);
 
-[x y t n yy] = GA(f,100,10);
+[x y t n yy] = descenso_aleatorio(f,100,x0);
 plot(yy,'.')
 
 disp(['Minimizador: ',mat2str(x)]);
