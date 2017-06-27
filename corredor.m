@@ -1,14 +1,14 @@
 
-f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
+f = @rosenbruck;
 x0 = [0,0];
 lb = [0 0];
-ub = [1 1];
+ub = [2 2];
 
-[x y t n xx yy] = hibrido(f,x0,'MaxIter','inf','tlim','30');
+[x y t n xx yy] = GA(f,30,2,'A','[0 2;0 2]','MaxIter','inf','tlim','10');
 
 figure
 plot(yy,'.')
-saveas(gcf, 'CuadRS1_1', 'fig')
+saveas(gcf, 'RosenGA1_1', 'fig')
 
 figure
 hold on
@@ -23,7 +23,7 @@ end
 contour(e_x,e_y,e_z')
 plot3(xx(1,:),xx(2,:),yy,'.')
 colorbar
-saveas(gcf, 'CuadRS1_2', 'fig')
+saveas(gcf, 'RosenGA1_2', 'fig')
 
 disp(['Minimizador: ',mat2str(x)]);
 disp(['Fmin: ',num2str(y)]);

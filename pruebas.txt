@@ -1,0 +1,41 @@
+f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
+x0 = [0,0];
+lb = [0 0];
+ub = [1 1];
+
+
+Prueba 1 GA Cuad (30,2)
+Minimizador: [0.499968879079719 0.750145479759688]
+Fmin: 2.2133e-08
+Cantidad de iteraciones: 52863
+Tiempo: 30.0005
+
+Prueba 1 DA Cuad
+Minimizador: [0.513815683747242 0.750389671860497]
+Fmin: 0.00019102
+Cantidad de iteraciones: 151295
+Tiempo: 30.0001
+
+Prueba 1 BL Cuad
+Minimizador: [0.500272376657817 0.74798335091881]
+Fmin: 4.1411e-06
+Cantidad de iteraciones: 60728
+Tiempo: 30.0002
+
+Prueba 1 BLI Cuad
+Minimizador: [0.500361578101523 0.747955613762081]
+Fmin: 4.3103e-06
+Cantidad de iteraciones: 6
+Tiempo: 30.2901
+
+Prueba 2 BLI Cuad
+Minimizador: [0.497809878471181 0.748006996023496]
+Fmin: 8.7687e-06
+Cantidad de iteraciones: 24
+Tiempo: 120.5398
+
+Prueba 1 RS Cuad
+Minimizador: [0.500000159149589 0.750000029037298]
+Fmin: 2.6172e-14
+Cantidad de iteraciones: 614
+Tiempo: 2.7537
