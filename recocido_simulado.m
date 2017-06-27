@@ -18,10 +18,10 @@ end
 S = x0;
 Best = S;
 d = size(x0);
-d = length(x0);
 m = 0;
 
-intermedios = [];
+intermediosx = [];
+intermediosy = [];
 
 tic
 while m <MaxIter && temp>tempTol && toc<tlim
@@ -47,7 +47,8 @@ while m <MaxIter && temp>tempTol && toc<tlim
         Best = S;
     end
     m = m +1;
-    intermedios = [intermedios f(Best)];
+    intermediosx = [intermediosx Best'];
+    intermediosy = [intermediosy f(Best)];
 end
 
 x = Best;
@@ -55,4 +56,5 @@ y = f(Best);
 
 varargout{1} = toc;
 varargout{2} = m;
-varargout{3} = intermedios;
+varargout{3} = intermediosx;
+varargout{4} = intermediosy;

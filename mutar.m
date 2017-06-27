@@ -1,6 +1,6 @@
 function y = mutar(x)
 
-d= lenght(x);
+d= length(x);
 p = 1/d;
 sigma2 = 1;
 min = -inf;

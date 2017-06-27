@@ -12,7 +12,8 @@ Ub = A(:,2)';
 Lb = A(:,1)';
 m = 0;
 
-intermedios = [];
+intermediosx = [];
+intermediosy = [];
 
 %Genero una poblacion al azar 
 P = zeros(popsize,d);
@@ -56,7 +57,9 @@ while m < MaxIter && toc<tlim
     end
     P = Q;
     m = m + 1;
-    intermedios = [intermedios f(Best)];
+    
+    intermediosx = [intermediosx Best'];
+    intermediosy = [intermediosy f(Best)];
 end
 
 x = Best;
@@ -64,4 +67,5 @@ y = f(Best);
 
 varargout{1} = toc;
 varargout{2} = m;
-varargout{3} = intermedios;
+varargout{3} = intermediosx;
+varargout{4} = intermediosy;

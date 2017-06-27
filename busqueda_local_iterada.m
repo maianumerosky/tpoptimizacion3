@@ -9,7 +9,8 @@ iter = opcion('n',varargin,10000);
 tlim = opcion('tlim',varargin,300);
 alpha = opcion('alpha',varargin,0.05);
 
-intermedios = [];
+intermediosx = [];
+intermediosy = [];
 
 minimizador_viejo = x0;
 minimo_viejo = f(minimizador_viejo);
@@ -28,9 +29,11 @@ while m < MaxIter && toc(tinicio)<tlim
     
     minimizador_viejo = rand(1,d).*(Ub-Lb)+Lb;
     m = m+1;
-    intermedios = [intermedios y];
+    intermediosx = [intermediosx x'];
+    intermediosy = [intermediosy y];
 end
 
 varargout{1} = toc(tinicio);
 varargout{2} = m;
-varargout{3} = intermedios;
+varargout{3} = intermediosx;
+varargout{4} = intermediosy;

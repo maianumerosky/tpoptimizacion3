@@ -13,7 +13,8 @@ tlim = opcion('tlim',varargin,300);
 Ub = A(:,2)'; %Los limites superiores del dominio en fila
 Lb = A(:,1)'; %Los limites inferiores del dominio en fila
 
-intermedios = [];
+intermediosx = [];
+intermediosy = [];
 
     % f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
 
@@ -47,11 +48,13 @@ while m<MaxIter && toc<tlim
        minimo_viejo = fmin; 
     end
     m = m + 1; 
-    intermedios = [intermedios minimo_viejo];
+    intermediosy = [intermediosy minimo_viejo];
+    intermediosx = [intermediosx minimizador_viejo'];
 end
 
 varargout{1} = toc;
 varargout{2} = m;
-varargout{3} = intermedios;
+varargout{3} = intermediosx;
+varargout{4} = intermediosy;
 x = minimo_valor;
 y = fmin;

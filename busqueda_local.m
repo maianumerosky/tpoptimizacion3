@@ -13,7 +13,8 @@ MaxIter = opcion('MaxIter',varargin,10000);
 tlim = opcion('tlim',varargin,300);
 alpha = opcion('alpha',varargin,0.05);
 
-intermedios = [];
+intermediosx = [];
+intermediosy = [];
 
 minimizador_viejo = x0;
 minimo_viejo = f(minimizador_viejo);
@@ -30,13 +31,15 @@ while m<MaxIter && toc(tinicio)<tlim
         Anueva(j,2) = min(minimizador_viejo(j)+alpha,A(j,2));
     end
 
-    [minimizador_viejo y] = descenso_aleatorio(f,minimizador_viejo,'Dominio',mat2str(Anueva),'MaxIter','1','n',num2str(n),'tlim',num2str(tlim));
+    [minimizador_viejo y] = descenso_aleatorio(f,minimizador_viejo,'A',mat2str(Anueva),'MaxIter','1','n',num2str(n),'tlim',num2str(tlim));
 
     m = m +1;   
-    intermedios = [intermedios y];
+    intermediosx = [intermediosx minimizador_viejo'];
+    intermediosy = [intermediosy y];
 end
 
 varargout{1} = toc(tinicio);
 varargout{2} = m;
-varargout{3} = intermedios;
+varargout{3} = intermediosx;
+varargout{4} = intermediosy;
 x = minimizador_viejo;
