@@ -10,17 +10,8 @@ tlim = opcion('tlim',varargin,300);
 
 intermedios = [];
 
-%Empiezo con un punto al azar en a
-
-%% Borrar si se acepta la modificacion
-%     x = [];
-%     for i = 1:d
-%         x = [x A(i,1)+(A(i,2)-A(i,1))*rand];
-%     end
-
 minimizador_viejo = x0;
 minimo_viejo = f(minimizador_viejo);
-%y = f(x0);    
 
 Ub = A(:,2)'; %Los limites superiores del dominio en fila
 Lb = A(:,1)'; %Los limites inferiores del dominio en fila

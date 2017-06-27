@@ -1,4 +1,7 @@
 function [x,y varargout] = descenso_aleatorio(f,x0,varargin)
+%Funcion que busca el minimo haciendo descenso aleatorio. Toma n puntos al
+%azar en la "caja" A que opcionalmente da el usuario, busca el mejor y compara con el
+%anterior. Repite iter veces. La funcion f:Rd-->R.
 
 d = length(x0);
 
@@ -12,22 +15,13 @@ Lb = A(:,1)'; %Los limites inferiores del dominio en fila
 
 intermedios = [];
 
-%Funcion que busca el minimo haciendo descenso aleatorio. Toma n puntos al
-%azar en la "caja" A que opcionalmente da el usuario, busca el mejor y compara con el
-%anterior. Repite iter veces. La funcion f:Rd-->R.
-
     % f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
- %Empiezo con un punto al azar en el dominio
-%% Borrar si se acepta esta modificacion
-%     minimizador_viejo = [];
-%     for i = 1:d
-%         minimizador_viejo = [minimizador_viejo A(i,1)+(A(i,2)-A(i,1))*rand(1)];
-%     end
 
 %%
 minimizador_viejo = x0;
 minimo_viejo = f(minimizador_viejo);
 m=0;
+
 %Genero n puntos al azar en A
 
 tic; %Comienzo a correr el tiempo, lo guardo para evitar conflictos debido al anidamiento de tic
