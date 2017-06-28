@@ -39,3 +39,151 @@ Minimizador: [0.500000159149589 0.750000029037298]
 Fmin: 2.6172e-14
 Cantidad de iteraciones: 614
 Tiempo: 2.7537
+
+x0 = [0,0]
+Lb = [0,0]
+Ub= [2,2]
+
+Prueba 1 GA Rosen
+Minimizador: [0.971321153903068 0.98561778415106]
+Fmin: 0.00082395
+Cantidad de iteraciones: 47194
+Tiempo: 30.0002
+
+Prueba 2 GA Rosen
+Minimizador: [0.99560035543776 0.997713291736335]
+Fmin: 2.2198e-05
+Cantidad de iteraciones: 47430
+Tiempo: 30.0004
+
+Prueba 1 DA Rosen
+Minimizador: [1.45500717258975 1.1966409097112]
+Fmin: 0.2602
+Cantidad de iteraciones: 138158
+Tiempo: 30.0001
+
+Prueba 2 DA Rosen
+Minimizador: [1.00806779581388 0.999928396619053]
+Fmin: 0.0068071
+Cantidad de iteraciones: 244238
+Tiempo: 60.0002
+
+Prueba 1 BL Rosen
+Minimizador: [0.972543340604813 0.985658191250022]
+Fmin: 0.00085817
+Cantidad de iteraciones: 57030
+Tiempo: 30.0001
+
+Prueba 1 BLI Rosen
+Minimizador: [1.00298580504064 1.00226958386917]
+Fmin: 0.00025181
+Cantidad de iteraciones: 6
+Tiempo: 30.8434
+
+Prueba 1 RS Rosen
+Minimizador: [1.00000137058619 -1.00000068611902]
+Fmin: 1.8788e-12
+Cantidad de iteraciones: 614
+Tiempo: 6.2226
+
+Prueba 2 RS Rosen
+Minimizador: [0.999999261287173 -0.999999793406159]
+Fmin: 1.1142e-11
+Cantidad de iteraciones: 614
+Tiempo: 5.7766
+
+Prueba 1 GA(30,4) Rosen4
+Minimizador: [0.0130006990899785 0.157771037621495 0.416356930682582 0.654559518670123]
+Fmin: 2.0772
+Cantidad de iteraciones: 45456
+Tiempo: 30.0003
+
+Prueba2 GA(30,4) Rosen4
+Minimizador: [0.407660078019268 0.62991913538808 0.784617413128401 0.882631305578344]
+Fmin: 0.56956
+Cantidad de iteraciones: 43181
+Tiempo: 30.0009
+
+Prueba3 GA(30,4) Rosen4
+Minimizador: [0.972077597609952 0.964064767060765 0.933804898566803 1.0144959859021]
+Fmin: 1.9462
+Cantidad de iteraciones: 91529
+Tiempo: 60.0003
+
+Prueba 4 GA(4,30, coverl) Rosen4
+Minimizador: [0.466418386865351 0.729929015550044 0.848985377186046 0.915735879954852]
+Fmin: 0.84028
+Cantidad de iteraciones: 87746
+Tiempo: 60.0002
+
+Prueba 5 GA(4,30, coveru) Rosen4
+Minimizador: [1.22809562847561 1.09898178040517 1.07023381374482 0.980570131175693]
+Fmin: 1.5055
+Cantidad de iteraciones: 91675
+Tiempo: 60.0001
+
+Prueba 6 GA(4,60,coveru) Rosen4
+Minimizador: [0.0643636187323542 0.216282301932527 0.444822417849184 0.671517191957155]
+Fmin: 1.8664
+Cantidad de iteraciones: 45975
+Tiempo: 60.0002
+
+Prueba 7 GA(4,60, coverl) Rosen 4
+Minimizador: [0.0556219139107236 0.212242507212844 0.459696708120605 0.666387018946642]
+Fmin: 1.84
+Cantidad de iteraciones: 46085
+Tiempo: 60.0001
+
+Prueba 1 DA Rosen 4
+Minimizador: [0.343414685624864 0.333574976492947 0.55755268352228 0.564437241728043]
+Fmin: 12.2219
+Cantidad de iteraciones: 134624
+Tiempo: 30.0001
+
+Prueba 2 DA Rosen 4
+Minimizador: [0.707244306195058 0.74043192190618 0.402815013622446 0.512656189684857]
+Fmin: 38.4262
+Cantidad de iteraciones: 268709
+Tiempo: 60.0001
+
+Prueba 1 BL Rosen 4
+Minimizador: [0.915946757988046 0.950958017046692 0.97508986465922 0.973143760062933]
+Fmin: 0.10246
+Cantidad de iteraciones: 50905
+Tiempo: 30.0002
+
+Prueba 2 BL Rosen 4
+Minimizador: [1.09513892961126 1.05288193565745 1.0168716383155 1.00678421218935]
+Fmin: 0.066754
+Cantidad de iteraciones: 50790
+Tiempo: 30.0003
+
+Prueba 3 BL Rosen 4
+Minimizador: [0.971624695004542 0.988644693896913 0.98502212018994 0.993192597496565]
+Fmin: 0.038482
+Cantidad de iteraciones: 102506
+Tiempo: 60.0003
+
+Prueba 1 BLI Rosen 4
+Minimizador: [0.854998386194124 0.932738269302047 0.975658382021537 0.993596859632726]
+Fmin: 0.098803
+Cantidad de iteraciones: 6
+Tiempo: 35.169
+
+Prueba 2 BLI Rosen4
+Minimizador: [1.09722577415578 1.0479347937228 1.01669343084041 1.00504341910493]
+Fmin: 0.03681
+Cantidad de iteraciones: 6
+Tiempo: 35.5623
+
+Prueba 3 BLI Rosen 4
+Minimizador: [0.967984283279852 0.987378120603065 1.00264567034441 0.994294904522378]
+Fmin: 0.057774
+Cantidad de iteraciones: 11
+Tiempo: 64.5688
+
+Prueba 1 RS Rosen4
+Minimizador: [0.999999261287173 -0.999999793406159]
+Fmin: 1.1142e-11
+Cantidad de iteraciones: 614
+Tiempo: 5.7766

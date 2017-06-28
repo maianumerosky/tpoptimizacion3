@@ -1,14 +1,14 @@
 
 f = @rosenbruck;
-x0 = [0,0];
-lb = [0 0];
-ub = [2 2];
+x0 = [0,0,0,0];
+lb = [0 0 0 0];
+ub = [2 2 2 2];
 
-[x y t n xx yy] = GA(f,30,2,'A','[0 2;0 2]','MaxIter','inf','tlim','10');
+[x y t n xx yy] = GA(f,60,4,'A','[0 2;0 2;0 2;0 2]','MaxIter','inf','tlim','60','crossover','coverl');
 
 figure
 plot(yy,'.')
-saveas(gcf, 'RosenGA1_1', 'fig')
+saveas(gcf, 'Rosen4GA7_1', 'fig')
 
 figure
 hold on
@@ -23,7 +23,7 @@ end
 contour(e_x,e_y,e_z')
 plot3(xx(1,:),xx(2,:),yy,'.')
 colorbar
-saveas(gcf, 'RosenGA1_2', 'fig')
+saveas(gcf, 'Rosen4GA7_2', 'fig')
 
 disp(['Minimizador: ',mat2str(x)]);
 disp(['Fmin: ',num2str(y)]);
