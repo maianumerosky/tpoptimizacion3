@@ -4,6 +4,8 @@ A = opcion('A',varargin,[zeros(d,1) ones(d,1)]);
 MaxIter = opcion('MaxIter',varargin,10000);
 tlim = opcion('tlim',varargin,300);
 IterBusqueda = opcion('IterBusqueda',varargin,10);
+ParamSelec = opcion('ParamSelec',varargin,4);
+crossover = opcion('crossver',varargin,@cover2);
 
 Best = [];
 Ub = A(:,2)';
@@ -27,6 +29,34 @@ while m < MaxIter && toc(tinicio)<tlim
             Best = P(i,:);
         end
     end
+    
+    Q = [];
+    for i = 1:popsize/2
+        Pa = seleccion(f,P,ParamSelec);
+        Pb = seleccion(f,P,ParamSelec);
+        [Ca Cb] = crossover(Pa,Pb);
+        Ca = mutar(Ca);
+        Cb = mutar(Cb);
+        
+        %Que Ca y Cb se mantengan dentro del dominio
+        if ~isempty(A) %Si no esta vacio el Dominio dado por el usuario
+            for coord = 1:d
+                if Ca(coord) > Ub(coord)
+                    Ca(coord) = Ub(coord);
+                elseif Ca(coord) < Lb(coord)
+                    Ca(coord) = Lb(coord);
+                end
+                if Cb(coord) > Ub(coord)
+                    Cb(coord) = Ub(coord);
+                elseif Cb(coord) < Lb(coord)
+                    Cb(coord) = Lb(coord);
+                end
+            end
+        end
+        
+        Q = [Q; Ca; Cb];
+    end
+    P = Q;
       
     m = m + 1;
     intermediosx = [intermediosx Best'];
