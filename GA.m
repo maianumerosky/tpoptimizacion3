@@ -11,6 +11,7 @@ Best = [];
 Ub = A(:,2)';
 Lb = A(:,1)';
 m = 0;
+n = 4;
 
 intermediosx = [];
 intermediosy = [];
@@ -21,16 +22,26 @@ for i = 1:popsize
     P(i,:) = rand(1,d).*(Ub-Lb)+Lb;
 end
 
+
 tic
 while m < MaxIter && toc<tlim
-    for i = 1:popsize
-        if isempty(Best) || f(P(i,:)) < f(Best)
-            Best = P(i,:);
-        end
+    Y = zeros(popsize,1);
+    for h = 1:popsize
+        Y(h) = f(P(h,:));
     end
     
+    [Ys,I] = sort(Y);
+    Best = P(I(1),:);
+    SobreV = P(I(1:4),:);
+    
+%     for i = 1:popsize
+%         if isempty(Best) || f(P(i,:)) < f(Best)
+%             Best = P(i,:);
+%         end
+%     end
+    
     Q = [];
-    for i = 1:popsize/2
+    for i = 1:((popsize-n)/2)
         Pa = seleccion(f,P,ParamSelec);
         Pb = seleccion(f,P,ParamSelec);
         [Ca Cb] = crossover(Pa,Pb);
@@ -55,7 +66,7 @@ while m < MaxIter && toc<tlim
         
         Q = [Q; Ca; Cb];
     end
-    P = Q;
+    P = [SobreV; Q];
     m = m + 1;
     
     intermediosx = [intermediosx Best'];
