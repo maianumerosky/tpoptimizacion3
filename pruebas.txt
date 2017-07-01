@@ -1,17 +1,11 @@
-f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
-x0 = [0,0];
-lb = [0 0];
-ub = [1 1];
-
-
-Prueba 1 GA Cuad (30,2)
-Minimizador: [0.499968879079719 0.750145479759688]
-Fmin: 2.2133e-08
-Cantidad de iteraciones: 52863
-Tiempo: 30.0005
+	Prueba 1 GA Cuad
+Minimizador: [0.500028501327864 0.750186333110279]
+Fmin: 3.5532e-08
+Cantidad de iteraciones: 66
+Tiempo: 30.4159
 
 Prueba 1 DA Cuad
-Minimizador: [0.513815683747242 0.750389671860497]
+Minimizador: [0.51381568374242 0.750389671860497]
 Fmin: 0.00019102
 Cantidad de iteraciones: 151295
 Tiempo: 30.0001
@@ -33,28 +27,30 @@ Minimizador: [0.497809878471181 0.748006996023496]
 Fmin: 8.7687e-06
 Cantidad de iteraciones: 24
 Tiempo: 120.5398
-
+	
 Prueba 1 RS Cuad
 Minimizador: [0.500000159149589 0.750000029037298]
 Fmin: 2.6172e-14
 Cantidad de iteraciones: 614
 Tiempo: 2.7537
 
+Prueba 1 HI Cuad (30,2,'A','[0 2;0 2]','MaxIter','inf','tlim','30','crossover','coverl')
+Minimizador: [0.49993524017274 0.750130617669531]
+Fmin: 2.1255e-08
+Cantidad de iteraciones: 66
+Tiempo: 30.1748
+
 x0 = [0,0]
 Lb = [0,0]
 Ub= [2,2]
 
-Prueba 1 GA Rosen
-Minimizador: [0.971321153903068 0.98561778415106]
-Fmin: 0.00082395
-Cantidad de iteraciones: 47194
-Tiempo: 30.0002
+----------------------------------------------------------------------------------------------------------
 
-Prueba 2 GA Rosen
-Minimizador: [0.99560035543776 0.997713291736335]
-Fmin: 2.2198e-05
-Cantidad de iteraciones: 47430
-Tiempo: 30.0004
+Prueba 1 GA Rosen
+Minimizador: [0.999999412020162 0.999999704696857]
+Fmin: 3.4641e-13
+Cantidad de iteraciones: 22579
+Tiempo: 30.001
 
 Prueba 1 DA Rosen
 Minimizador: [1.45500717258975 1.1966409097112]
@@ -92,47 +88,13 @@ Fmin: 1.1142e-11
 Cantidad de iteraciones: 614
 Tiempo: 5.7766
 
-Prueba 1 GA(30,4) Rosen4
-Minimizador: [0.0130006990899785 0.157771037621495 0.416356930682582 0.654559518670123]
-Fmin: 2.0772
-Cantidad de iteraciones: 45456
-Tiempo: 30.0003
+Prueba 1 HI Rosen
+Minimizador: [0.999660789154283 0.999837775386263]
+Fmin: 1.3693e-07
+Cantidad de iteraciones: 69
+Tiempo: 30.3623
+---------------------------------------------------------------------------------------------------------
 
-Prueba2 GA(30,4) Rosen4
-Minimizador: [0.407660078019268 0.62991913538808 0.784617413128401 0.882631305578344]
-Fmin: 0.56956
-Cantidad de iteraciones: 43181
-Tiempo: 30.0009
-
-Prueba3 GA(30,4) Rosen4
-Minimizador: [0.972077597609952 0.964064767060765 0.933804898566803 1.0144959859021]
-Fmin: 1.9462
-Cantidad de iteraciones: 91529
-Tiempo: 60.0003
-
-Prueba 4 GA(4,30, coverl) Rosen4
-Minimizador: [0.466418386865351 0.729929015550044 0.848985377186046 0.915735879954852]
-Fmin: 0.84028
-Cantidad de iteraciones: 87746
-Tiempo: 60.0002
-
-Prueba 5 GA(4,30, coveru) Rosen4
-Minimizador: [1.22809562847561 1.09898178040517 1.07023381374482 0.980570131175693]
-Fmin: 1.5055
-Cantidad de iteraciones: 91675
-Tiempo: 60.0001
-
-Prueba 6 GA(4,60,coveru) Rosen4
-Minimizador: [0.0643636187323542 0.216282301932527 0.444822417849184 0.671517191957155]
-Fmin: 1.8664
-Cantidad de iteraciones: 45975
-Tiempo: 60.0002
-
-Prueba 7 GA(4,60, coverl) Rosen 4
-Minimizador: [0.0556219139107236 0.212242507212844 0.459696708120605 0.666387018946642]
-Fmin: 1.84
-Cantidad de iteraciones: 46085
-Tiempo: 60.0001
 
 Prueba 1 DA Rosen 4
 Minimizador: [0.343414685624864 0.333574976492947 0.55755268352228 0.564437241728043]
@@ -201,3 +163,9 @@ Minimizador: [0.00926002223415213 0.0219384590854868 0.0902896887516756 0.287775
 Fmin: 3.6257
 Cantidad de iteraciones: 11747
 Tiempo: 60.0049
+
+Prueba 1 HI Rosen 4 
+Minimizador: [1.01842792645977 1.00799828806188 1.00363490336728 1.00179108513731]
+Fmin: 0.0010286
+Cantidad de iteraciones: 131
+Tiempo: 60.1544

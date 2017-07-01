@@ -4,14 +4,13 @@ A = opcion('A',varargin,[zeros(d,1) ones(d,1)]);
 MaxIter = opcion('MaxIter',varargin,10000);
 tlim = opcion('tlim',varargin,300);
 ParamSelec = opcion('ParamSelec',varargin,4);
-crossover = opcion('crossver',varargin,@cover2);
-% mutar = opcion('mutar',varargin,@mutar);
+crossover = opcion('crossver',varargin,@coverl);
+padres = opcion('padres',varargin,4);
 
 Best = [];
 Ub = A(:,2)';
 Lb = A(:,1)';
 m = 0;
-n = 4;
 
 intermediosx = [];
 intermediosy = [];
@@ -34,14 +33,8 @@ while m < MaxIter && toc<tlim
     Best = P(I(1),:);
     SobreV = P(I(1:4),:);
     
-%     for i = 1:popsize
-%         if isempty(Best) || f(P(i,:)) < f(Best)
-%             Best = P(i,:);
-%         end
-%     end
-    
     Q = [];
-    for i = 1:((popsize-n)/2)
+    for i = 1:((popsize-padres)/2)
         Pa = seleccion(f,P,ParamSelec);
         Pb = seleccion(f,P,ParamSelec);
         [Ca Cb] = crossover(Pa,Pb);
