@@ -150,6 +150,30 @@ Fmin: 1.1142e-11
 Cantidad de iteraciones: 614
 Tiempo: 5.7766
 
+Prueba 1 GA Rosen4
+Minimizador: [0.987171755942262 0.993513187979752 0.996735896613503 0.998367720731389]
+Fmin: 0.00021846
+Cantidad de iteraciones: 44333
+Tiempo: 30.0016
+
+Prueba 2 GA Rosen4
+Minimizador: [0.988372568141943 0.994105364635415 0.997048294205723 0.998520085810807]
+Fmin: 0.00018028
+Cantidad de iteraciones: 45493
+Tiempo: 30.0002
+
+Prueba 3 GA Rosen4 (doble tiempo y población)
+Minimizador: [0.999836215515004 0.999917302471122 0.999957133794098 0.999978486783755]
+Fmin: 3.6681e-08
+Cantidad de iteraciones: 43518
+Tiempo: 60.0004
+
+Prueba 1 HI Rosen 4 
+Minimizador: [1.01842792645977 1.00799828806188 1.00363490336728 1.00179108513731]
+Fmin: 0.0010286
+Cantidad de iteraciones: 131
+Tiempo: 60.1544
+
 ----------------------------------------------------------------------------------------------------------
 
 Prueba 1 HI Rosen7 : (Con Dominio planteado por mi al azar)
@@ -166,8 +190,14 @@ Fmin: 3.6257
 Cantidad de iteraciones: 11747
 Tiempo: 60.0049
 
-Prueba 1 HI Rosen 4 
-Minimizador: [1.01842792645977 1.00799828806188 1.00363490336728 1.00179108513731]
-Fmin: 0.0010286
-Cantidad de iteraciones: 131
-Tiempo: 60.1544
+Prueba 1 RS Rosen 7
+Minimizador: [0.999942229121452 0.99997516515721 0.999988443714938 0.999994090851247 0.99999677948937 0.999997586463241]
+Fmin: 1.1287e-08
+Cantidad de iteraciones: 614
+Tiempo: 7.2331
+
+Prueba GA Rosen 7 (población 60, tiempo 120)
+Minimizador: [0.996462001563625 0.998221913762694 0.999081201049394 0.999539319211074 0.999766331419461 0.999879598820954]
+Fmin: 1.7167e-05
+Cantidad de iteraciones: 178686
+Tiempo: 120.0011
