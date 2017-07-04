@@ -201,3 +201,76 @@ Minimizador: [0.996462001563625 0.998221913762694 0.999081201049394 0.9995393192
 Fmin: 1.7167e-05
 Cantidad de iteraciones: 178686
 Tiempo: 120.0011
+
+------------------------------------
+Prueba Hibrido Levi
+Minimizador: [1.00001347469608 0.999356368388552]
+Fmin: 4.3058e-07
+Cantidad de iteraciones: 68
+Tiempo: 30.1463
+
+Prueba Hibrido Levi
+Minimizador: [1.00001776052149 0.999801192419263]
+Fmin: 6.7859e-08
+Cantidad de iteraciones: 135
+Tiempo: 60.0996
+
+Prueba GA Levi
+Minimizador: [1.00000000000002 1.00000000021327]
+Fmin: 4.5484e-20
+Cantidad de iteraciones: 22754
+Tiempo: 30.0008
+
+Prueba GA Levi
+Minimizador: [1.00000000000363 1.00000000000005]
+Fmin: 1.1807e-21
+Cantidad de iteraciones: 45723
+Tiempo: 60.0011
+
+Prueba DA Levi, x0 aleatorio [-3.654365664575252,-6.291158290445971]
+Minimizador: [1.52434007069767 0.566074980769592]
+Fmin: 1.6235
+Cantidad de iteraciones: 119510
+Tiempo: 30.0002
+
+Prueba DA Levi, x0 aleatorio [4.708567479491103,-3.058409931330317]
+Minimizador: [0.696285518055625 1.76399843964633]
+Fmin: 1.3892
+Cantidad de iteraciones: 117444
+Tiempo: 30
+
+Prueba BL Levi, x0 aleatorio [8.471130405710497,-8.130974561400874]
+Minimizador: [4.28677078776434 -7.99807375465232]
+Fmin: 91.9641
+Cantidad de iteraciones: 22608
+Tiempo: 30.0003
+
+Prueba BL Levi, x0 aleatorio [-0.722756865200685,-6.469955914499108]
+Minimizador: [-0.620046564225565 -6.49314699252384]
+Fmin: 61.6704
+Cantidad de iteraciones: 22780
+Tiempo: 30.001
+
+Prueba BLI Levi, x0 aleatorio [5.829189273034556,4.021117485239415]
+Minimizador: [4.9406256913712 2.33709577418559]
+Fmin: 18.9214
+Cantidad de iteraciones: 3
+Tiempo: 39.6167
+
+Prueba BL Levi, x0 aleatorio [5.879042418808275,-9.414719302415220]
+Minimizador: [2.94576673195455 -6.49507646645711]
+Fmin: 64.0331
+Cantidad de iteraciones: 10
+Tiempo: 132.0007
+
+Prueba RS Levi, x0 aleatorio [-1.393594740046790,0.837064947619904]
+Minimizador: [1.00000011014338 1.0000014185058]
+Fmin: 3.1019e-12
+Cantidad de iteraciones: 614
+Tiempo: 16.8697
+
+Prueba RS Levi, x0 aleatorio [2.254824042284540,-1.945655347833156]
+Minimizador: [0.999999941585644 0.999998534462211]
+Fmin: 2.4543e-12
+Cantidad de iteraciones: 614
+Tiempo: 17.0866

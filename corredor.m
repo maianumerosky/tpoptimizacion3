@@ -1,14 +1,15 @@
 %f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
-f = @rosenbruck;
-x0 = [0,0,0,0,0,0];
-lb = [0 0];
-ub = [2 2];
+f = @levi;
+x0 = rand(1,2).*[20,20]+[-10,-10];
+lb = [-10 -10];
+ub = [-10 10];
 
-[x y t n xx yy] = GA(f,30,6,'A','[0,2;0,2;0,2;0,2;0,2;0,2]','MaxIter','inf','tlim','120');
+
+[x y t n xx yy] = busqueda_local_iterada(f,x0,'A','[-10,10;-10,10]','MaxIter','inf','tlim','30');
     
 figure
 plot(yy,'.')
-saveas(gcf, 'Rosen6GA1_1', 'fig')
+saveas(gcf, 'LeviBLI2_1', 'fig')
 
 figure
 hold on
@@ -23,7 +24,7 @@ end
 contour(e_x,e_y,e_z')
 plot3(xx(1,:),xx(2,:),yy,'.')
 colorbar
-saveas(gcf, 'Rosen6GA1_2', 'fig')
+saveas(gcf, 'LeviBLI2_2', 'fig')
 
 disp(['Minimizador: ',mat2str(x)]);
 disp(['Fmin: ',num2str(y)]);
