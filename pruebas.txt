@@ -300,7 +300,6 @@ Tiempo: 30.0007
 Gradiente: 0.0010608  -0.0017571
 
 Prueba 4 Griewank BL:
-Gradiente: 0.0010608  -0.0017571
 x0 aleatorio: 11.8672      49.2278
 Minimizador: [9.30374580072181 47.81137751719]
 Fmin: 12.1359
