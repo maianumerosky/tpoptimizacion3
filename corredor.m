@@ -1,15 +1,17 @@
 %f = @(x) (x(1)-0.5).^2+(x(2)-0.75).^2;
-f = @levi;
-x0 = rand(1,2).*[20,20]+[-10,-10];
-lb = [-10 -10];
-ub = [-10 10];
+% f = @levi;
+f = @griewank;
+x0 = rand(1,2).*[200,200]+[-100,-100];
+lb = [-100 -100];
+ub = [100 100];
 
 
-[x y t n xx yy] = busqueda_local_iterada(f,x0,'A','[-10,10;-10,10]','MaxIter','inf','tlim','30');
+% [x y t n xx yy] = recocido_simulado(f,x0,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+[x y t n xx yy] = hibrido(f,60,2,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
     
 figure
 plot(yy,'.')
-saveas(gcf, 'LeviBLI2_1', 'fig')
+saveas(gcf, 'GriewankHI12_1', 'fig')
 
 figure
 hold on
@@ -24,9 +26,11 @@ end
 contour(e_x,e_y,e_z')
 plot3(xx(1,:),xx(2,:),yy,'.')
 colorbar
-saveas(gcf, 'LeviBLI2_2', 'fig')
+saveas(gcf, 'GriewankHI12_2', 'fig')
 
+disp(['x0 aleatorio: ',num2str(x0)]);
 disp(['Minimizador: ',mat2str(x)]);
 disp(['Fmin: ',num2str(y)]);
 disp(['Cantidad de iteraciones: ',num2str(n)]);
 disp(['Tiempo: ',num2str(t)])
+disp(['Gradiente: ',num2str(gradiente(f,x'))]);

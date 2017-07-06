@@ -274,3 +274,96 @@ Minimizador: [0.999999941585644 0.999998534462211]
 Fmin: 2.4543e-12
 Cantidad de iteraciones: 614
 Tiempo: 17.0866
+
+Prueba 1 Griewank DA: Parametros: descenso_aleatorio(f,x0,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+x0 aleatorio: 10.2256     -29.9794
+Minimizador: [8.27616618970737 15.0795804036425]
+Fmin: 2.3456
+Cantidad de iteraciones: 12618
+Tiempo: 30.0022
+Gradiente: -0.21515     0.42465
+
+Prueba 2 Griewank DA: 
+x0 aleatorio: -53.3762       64.891
+Minimizador: [0.145824204335682 -0.516018180140293]
+Fmin: 0.077186
+Cantidad de iteraciones: 13715
+Tiempo: 30.0013
+Gradiente: 0.13725    -0.25478
+
+Prueba 3 Griewank BL: Parametros: busqueda_local(f,x0,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+x0 aleatorio: -5.0066      4.3564
+Minimizador: [-3.10941635297829 4.3521653869825]
+Fmin: 0.14562
+Cantidad de iteraciones: 7503
+Tiempo: 30.0007
+Gradiente: 0.0010608  -0.0017571
+
+Prueba 4 Griewank BL:
+Gradiente: 0.0010608  -0.0017571
+x0 aleatorio: 11.8672      49.2278
+Minimizador: [9.30374580072181 47.81137751719]
+Fmin: 12.1359
+Cantidad de iteraciones: 7744
+Tiempo: 30.0005
+Gradiente: 0.0047135 -0.00021479
+
+Prueba 5 Griewank BLI: Parametros: busqueda_local_iterada(f,x0,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+x0 aleatorio: -26.9297     -58.4704
+Minimizador: [-24.6989331691859 -51.9765789161496]
+Fmin: 17.0273
+Cantidad de iteraciones: 1
+Tiempo: 30.0111
+Gradiente: -0.0011393  0.00069059
+
+Prueba 6 Griewank BLI:
+x0 aleatorio: -2.22822     -42.8947
+Minimizador: [-3.10245963767861 -39.1522086947589]
+Fmin: 7.882
+Cantidad de iteraciones: 1
+Tiempo: 30.0036
+Gradiente: 0.0015363   0.0013355
+
+Prueba 7 Griewank RS: Parametros: recocido_simulado(f,x0,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+x0 aleatorio: 70.139      71.3898
+Minimizador: [-0.150527494377712 -0.311346343625799]
+Fmin: 0.035769
+Cantidad de iteraciones: 311
+Tiempo: 30.0701
+Gradiente: -0.1478    -0.15576
+
+Prueba 8 Griewank RS:
+x0 aleatorio: -16.0404       76.738
+Minimizador: [-0.415104447696776 -0.12876296802411]
+Fmin: 0.089661
+Cantidad de iteraciones: 312
+Tiempo: 30.0298
+Gradiente: -0.40572   -0.060097
+
+Prueba 9 Griewank GA: Parametros: GA(f,60,2,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+Minimizador: [-1.78083412288341e-007 4.40478785180006e-007]
+Fmin: 6.5503e-014
+Cantidad de iteraciones: 2827
+Tiempo: 30.0104
+Gradiente: 5.032e-005 2.5725e-005
+
+Prueba 10 Griewank GA:
+Minimizador: [1.30184218911236e-008 -1.37483145255356e-006]
+Fmin: 4.8206e-013
+Cantidad de iteraciones: 2731
+Tiempo: 30.0036
+Gradiente: 5.0513e-005 2.4799e-005
+
+Prueba 11 Griewank HI: Parametros: hibrido(f,60,2,'A','[-100,100;-100,100]','MaxIter','inf','tlim','30');
+Minimizador: [-3.29770422736533e-005 -7.55238392575672e-005]
+Fmin: 2.0037e-009
+Cantidad de iteraciones: 12
+Tiempo: 30.159
+Gradiente: 1.7193e-005 -1.3017e-005
+
+Prueba 12 Griewank HI:
+Minimizador: [-0.000359184209097044 -0.000301485886014516]
+Fmin: 8.833e-008
+Cantidad de iteraciones: 13
+Tiempo: 31.2345
+Gradiente: -0.00031228 -0.00012826
